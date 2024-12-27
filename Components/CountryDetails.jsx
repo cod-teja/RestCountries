@@ -26,7 +26,7 @@ export default function CountryDetails() {
       subregion: data?.subregion,
       capital: data?.capital,
       currencies: Object.values(
-        data?.currencies === undefined ? {} : data?.currencies === undefined
+        data?.currencies === undefined ? {} : data?.currencies 
       )
         .map((currency) => currency?.name)
         .join(", "),
