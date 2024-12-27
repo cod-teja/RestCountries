@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import Borders from "./Borders"
-import "./CountryDetails.css"
+import "./Countrydetails.css"
 import { useLocation, useParams } from "react-router"
 import CountryDetailShimmer from "./CountryDetailsShimmer"
 import { ThemeContext } from "../contexts/ThemeContext"
@@ -17,16 +17,22 @@ export default function CountryDetails() {
     setCountryDetails({
       flag: data.flags.svg,
       name: data?.name?.common,
-      nativeName: Object.values(data?.name?.nativeName=== undefined ? {}:data?.name?.nativeName)[0]?.common,
+      nativeName: Object.values(
+        data?.name?.nativeName === undefined ? {} : data?.name?.nativeName
+      )[0]?.common,
       population: data?.population?.toLocaleString("en-IN"),
       region: data?.region,
       topLevelDomain: data?.tld?.join(", "),
       subregion: data?.subregion,
       capital: data?.capital,
-      currencies: Object.values(data?.currencies=== undefined ? {}:data?.currencies=== undefined)
+      currencies: Object.values(
+        data?.currencies === undefined ? {} : data?.currencies === undefined
+      )
         .map((currency) => currency?.name)
         .join(", "),
-      languages: Object.values(data?.languages== undefined ? {}:data?.languages).join(", "),
+      languages: Object.values(
+        data?.languages == undefined ? {} : data?.languages
+      ).join(", "),
       borders: data.borders ? data.borders : null,
     })
   }
